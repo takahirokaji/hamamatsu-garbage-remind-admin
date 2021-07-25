@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "@material-ui/core/Button";
 
 type Props = {};
 
@@ -58,5 +59,15 @@ export const CSVFileInput: React.FC<Props> = (event: any) => {
       alert("エラー：ファイルをロードできません。");
     };
   };
-  return <input type="file" accept=".csv" onChange={fileHandler} />;
+  return (
+    <Button component="label" variant="contained" color="primary">
+      CSVファイルを選択してください
+      <input
+        type="file"
+        accept=".csv"
+        onChange={fileHandler}
+        style={{ opacity: 0, appearance: "none", position: "absolute" }}
+      />
+    </Button>
+  );
 };
